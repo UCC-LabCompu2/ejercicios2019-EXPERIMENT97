@@ -88,6 +88,7 @@ function dibujarCuadricula() {
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
 
+    console.log("Entro a a funcion");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     ctx.fillStyle = "#000";
@@ -104,6 +105,32 @@ function dibujarCuadricula() {
     }
     ctx.stroke();
     ctx.closePath();
+}
+function dibujar() {
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+
+    y = a * x + b;
+    console.log({x,y});
+    x++;
+
+    dibujarCuadricula();
+
+    ctx.fillRect(x,y,3,3);
+    ctx.fillStyle = "#0072ff";
+
+    if (x> canvas.width){
+        clearInterval(intervalo);
+    }
+}
+function animar() {
+    var canvas = document.getElementById("myCanvas");
+    x =0;
+    a = -1* canvas.height/canvas.width;
+    b = canvas.height
+    setInterval(dibujar, 33)
 }
 function dibujarImg() {
     var canvas = document.getElementById("myCanvas");
